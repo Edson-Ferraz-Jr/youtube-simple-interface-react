@@ -6,6 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Slider = styled.div<{ $openMenu?: boolean }>`
+    border: 1px solid #000;
     box-sizing: border-box;
     max-width: inherit;
     width: inherit;
