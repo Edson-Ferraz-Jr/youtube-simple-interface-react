@@ -1,0 +1,68 @@
+import {
+    ButtonContainer,
+    ButtonIcon,
+    Container,
+    HeaderButtons,
+    LoginButton,
+    LogoContainer,
+    SearchButton,
+    SearchContainer,
+    SearchInput,
+    SearchInputContainer
+} from "./style";
+
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { InterfaceContext } from "../../contexts/interfaceContext";
+
+import HamburguerIcon from '../../assets/hamburger-icon.png';
+import YoutubeLogo from '../../assets/youTube-logo.png';
+import SearchIcon from '../../assets/search-icon.png';
+import MicrophoneIcon from '../../assets/microphone-icon.png';
+import LoginIcon from '../../assets/login-icon.png';
+
+function Header() {
+    const navigate = useNavigate();
+
+    const { openMenu, setOpenMenu } = useContext(InterfaceContext);
+    
+    return(
+        <Container>
+            <LogoContainer>
+                <ButtonContainer onClick={() => setOpenMenu(!openMenu)} margin="0 10px 0 0">
+                    <ButtonIcon src={HamburguerIcon} alt="" />
+                </ButtonContainer>
+                
+                <img src={YoutubeLogo} alt="" style={{cursor: 'pointer', width: '100px'}} onClick={() => navigate('/')} />
+            </LogoContainer>
+
+            <SearchContainer>
+                <SearchInputContainer>
+                    <SearchInput placeholder="Pesquisar" />
+                </SearchInputContainer>
+                
+                <SearchButton>
+                    <ButtonIcon src={SearchIcon} alt="" />
+                </SearchButton>
+
+                <ButtonContainer margin='0 0 0 10px'>
+                    <ButtonIcon src={MicrophoneIcon} alt="" />
+                </ButtonContainer>
+            </SearchContainer>
+
+            <HeaderButtons>
+
+                {
+                    <LoginButton onClick={() => navigate('/sign-in')}>
+                        <ButtonIcon src={LoginIcon} alt="" />
+
+                        <span>Fazer login</span>
+                    </LoginButton>
+                }
+
+            </HeaderButtons>
+        </Container>
+    )
+}
+
+export default Header;
