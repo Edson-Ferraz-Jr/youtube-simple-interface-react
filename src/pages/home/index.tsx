@@ -75,24 +75,22 @@ const categoriesList = [
     {name: 'Ciência e tecnologia', id: '2'}, 
     {name: 'Documentários', id: '26'}, 
     {name: 'Economia', id: '25'}, 
-    {name: 'Investimentos e finanças', id: '20'}, 
-    {name: 'Moda e estilo', id: '23'},
+    {name: 'Investimentos e finanças', id: '20'},
+    {name: 'Moda e estilo', id: '23'}
 ];
 
 function Home() {
     const { openMenu } = useContext(InterfaceContext);
 
     return(
-        <Container>        
-            <CategoriesBar categoriesList={categoriesList} />
+        <Container>
+            <CategoriesBar />
 
             <VideosContainer $openMenu={openMenu} style={{marginTop: '20px'}}>
                 {
                     videos.map((item, index) => (
                         <VideoComponent video={item} key={index} />
                     ))
-
-                    
                 }
             </VideosContainer>
 

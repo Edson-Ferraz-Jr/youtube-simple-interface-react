@@ -4,6 +4,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
+    overflow-x: hidden;
 `;
 
 export const VideosContainer = styled.div<{ $openMenu: boolean }>`
