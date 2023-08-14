@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ $openMenu: boolean }>`
+export const Container = styled.div<{ $openMenu: boolean, $openMenuMobile: boolean }>`
+    background-color: #fff;
     width: ${ ({ $openMenu }) => $openMenu ? '250px' : '100px' };
     height: calc(100vh - 55px);
     padding: 0 10px;
@@ -10,6 +11,12 @@ export const Container = styled.div<{ $openMenu: boolean }>`
     overflow-y: auto;
     position: sticky;
     top: 55px;
+
+    @media(max-width: 768px) {
+        z-index: 1;
+        position: fixed;
+        display: ${ ({ $openMenuMobile }) => $openMenuMobile ? 'flex' : 'none' };
+    }
 `;
 
 export const MenuSection = styled.div<{ $openMenu: boolean, $menuSectionTitle?: string }>`

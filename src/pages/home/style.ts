@@ -16,9 +16,24 @@ export const VideosContainer = styled.div<{ $openMenu: boolean }>`
     display: grid;
     column-gap: 20px;
     row-gap: 50px;
-    grid-template-columns: ${ ({ $openMenu }) => $openMenu ? 'repeat(3, 1fr)' : 'repeat(4, 1fr)' };
 
-    @media(min-width: 1440px) {
+    @media(max-width: 2560px) {
         grid-template-columns: ${ ({ $openMenu }) => $openMenu ? 'repeat(4, 1fr)' : 'repeat(5, 1fr)' };
+    }
+
+    @media(max-width: 1440px) {
+        grid-template-columns: ${ ({ $openMenu }) => $openMenu ? 'repeat(3, 1fr)' : 'repeat(4, 1fr)' };
+    }
+
+    @media(max-width: 1024px) {
+        grid-template-columns: ${ ({ $openMenu }) => $openMenu ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)' };
+    }
+    
+    @media(max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media(max-width: 590px) {
+        grid-template-columns: 1fr;
     }
 `;

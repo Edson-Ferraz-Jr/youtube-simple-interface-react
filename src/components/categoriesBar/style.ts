@@ -5,6 +5,10 @@ export const Container = styled.div<{ $openMenu?: boolean }>`
     top: 55px;
     max-width: 100%;
     width: calc(100% - ${ ({ $openMenu }) => $openMenu ? '120px' : '60px' });
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const Slider = styled.div`

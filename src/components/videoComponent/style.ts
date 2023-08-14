@@ -6,13 +6,17 @@ export const Container = styled.div`
 
 export const ImageBanner = styled.div<{ $thumbnail?: string }>`
     width: 100%;
-    height: 160px;
+    height: 200px;
     background-image: url(${ ({ $thumbnail }) => $thumbnail });
     background-position: 50% 50%;
     background-size: cover;
     border-radius: 12px;
+    
+    @media(min-width: 425px) {
+        height: 250px;
+    }
 
-    @media(min-width: 1440px) {
+    @media(min-width: 768px) {
         height: 230px;
     }
 `;

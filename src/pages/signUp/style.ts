@@ -41,6 +41,11 @@ export const FormContainer = styled.div`
     span {
         font-size: 18px;
     }
+
+    @media(max-width: 425px) {
+        width: 85%;
+        padding: 40px 10px;
+    }
 `;
 
 export const FormInputs = styled.div`

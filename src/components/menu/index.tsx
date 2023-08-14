@@ -26,10 +26,10 @@ const menuItems = [
 function Menu() {
     const navigate = useNavigate();
     
-    const { openMenu } = useContext(InterfaceContext);
+    const { openMenu, openMenuMobile } = useContext(InterfaceContext);
 
     return (
-        <Container $openMenu={openMenu}>
+        <Container $openMenu={openMenu} $openMenuMobile={openMenuMobile}>
             <MenuSection $openMenu={openMenu} $menuSectionTitle="main" >
                 {
                     menuItems.map((item, index) => (
