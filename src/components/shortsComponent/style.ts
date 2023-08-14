@@ -4,6 +4,10 @@ export const Container = styled.div`
     width: 100%;
     border-top: 4px solid #ccc;
     border-bottom: 4px solid #ccc;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 export const ShortsLogo = styled.img`
@@ -17,12 +21,23 @@ export const ContainerVideoCards = styled.div`
     column-gap: 20px;
     row-gap: 30px;
     justify-content: center;
+
+    @media(max-width: 768px) {
+        height: 400px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: scroll;
+    }
 `;
 
 export const VideoCard = styled.div`
     background-color: #fff;
     width: 200px;
     height: 450px;
+
+    @media(max-width: 768px) {
+        height: 300px;
+    }
 `;
 
 export const VideoCardThumbnail = styled.div`

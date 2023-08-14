@@ -15,65 +15,19 @@ function ShortsComponent() {
             <ShortsLogo src={ShortsLogoImg} />
             
             <ContainerVideoCards>
-                <VideoCard>
-                    <VideoCardThumbnail />
+                {
+                    [...Array(10)].map((item, index) => (
+                        <VideoCard key={index}>
+                            <VideoCardThumbnail />
 
-                    <VideoCardDescription>
-                        <span className="title">Título do vídeo</span>
+                            <VideoCardDescription>
+                                <span className="title">Título do vídeo</span>
 
-                        <span>1 mi de visualiazações</span>
-                    </VideoCardDescription>
-                </VideoCard>
-
-                <VideoCard>
-                    <VideoCardThumbnail />
-
-                    <VideoCardDescription>
-                        <span className="title">Título do vídeo</span>
-
-                        <span>1 mi de visualiazações</span>
-                    </VideoCardDescription>
-                </VideoCard>
-
-                <VideoCard>
-                    <VideoCardThumbnail />
-
-                    <VideoCardDescription>
-                        <span className="title">Título do vídeo</span>
-
-                        <span>1 mi de visualiazações</span>
-                    </VideoCardDescription>
-                </VideoCard>
-
-                <VideoCard>
-                    <VideoCardThumbnail />
-
-                    <VideoCardDescription>
-                        <span className="title">Título do vídeo</span>
-
-                        <span>1 mi de visualiazações</span>
-                    </VideoCardDescription>
-                </VideoCard>
-
-                <VideoCard>
-                    <VideoCardThumbnail />
-
-                    <VideoCardDescription>
-                        <span className="title">Título do vídeo</span>
-
-                        <span>1 mi de visualiazações</span>
-                    </VideoCardDescription>
-                </VideoCard>
-
-                <VideoCard>
-                    <VideoCardThumbnail />
-
-                    <VideoCardDescription>
-                        <span className="title">Título do vídeo</span>
-
-                        <span>1 mi de visualiazações</span>
-                    </VideoCardDescription>
-                </VideoCard>
+                                <span>1 mi de visualiazações</span>
+                            </VideoCardDescription>
+                        </VideoCard>
+                    ))
+                }
             </ContainerVideoCards>
         </Container>
     )
