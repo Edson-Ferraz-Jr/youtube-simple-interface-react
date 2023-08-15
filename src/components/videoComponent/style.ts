@@ -29,6 +29,7 @@ export const TitleContainer = styled.div`
 
 export const ChannelImage = styled.div`
     background-color: beige;
+    color: #000;
     width: 40px;
     height: 40px;
     display: flex;
@@ -45,7 +46,7 @@ export const TextContainer = styled.div`
 
 export const Title = styled.span`
     font-weight: 500;
-    color: #0f0f0f;
+    color: ${ props => props.theme.themeName === 'light' ? '#000' : '#fff' };
 `;
 
 export const TextCard = styled.span`

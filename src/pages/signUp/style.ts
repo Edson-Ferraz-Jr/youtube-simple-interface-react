@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
     padding: 50px;
     width: 350px;
     height: 400px;
-    border: 1px solid #d3d3d3;
+    border: 1px solid ${ props => props.theme.form.borderColor };
     border-radius: 10px;
     
     header {
@@ -59,8 +59,10 @@ export const FormInputs = styled.div`
         padding: 15px;
         box-sizing: border-box;
         border-radius: 5px;
-        border: 1px solid #d3d3d3;
         font-size: 18px;
+        border: 1px solid ${ props => props.theme.form.borderColor };
+        background-color: ${ props => props.theme.backGroundColor };
+        color: ${ props => props.theme.fontColor };
     }
 
     input:focus {

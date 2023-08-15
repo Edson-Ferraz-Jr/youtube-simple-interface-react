@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+import YoutubeLogo from '../../assets/youTube-logo.png';
+import YoutubeLogoDarkTheme from '../../assets/youtube-logo-dark-theme.png';
+
 export const Container = styled.header`
     width: 100%;
     height: 55px;
-    background-color: #fff;
+    background-color: ${ props => props.theme.backGroundColor };
+    color: ${ props => props.theme.fontColor };
     padding: 0 16px;
     box-sizing: border-box;
     display: flex;
@@ -13,12 +17,20 @@ export const Container = styled.header`
     top: 0;
 
     .menu-button-mobile {
-        display: flex;
+        display: none;
+        margin: 0;
     }
 
-    @media(min-width: 769px) {
+    @media(max-width: 768px) {
+        padding: 0 5px;
+
         .menu-button-mobile {
-            display: none;
+            display: flex;
+        }
+
+        .theme-switcher {
+            width: 30px;
+            height: 30px;
         }
     }
 `;
@@ -27,6 +39,26 @@ export const LogoContainer = styled.div`
     display: flex;
     align-items: center;
 `;
+
+export const LogoImageContainer = styled.div`
+    box-sizing: border-box;
+    display: flex;
+    max-width: ${ props => props.theme.themeName === 'light' ? '120px' : '130px' };
+    width: ${ props => props.theme.themeName === 'light' ? '120px' : '130px' };
+    max-height: ${ props => props.theme.themeName === 'light' ? '60px' : '80px' };
+    height: ${ props => props.theme.themeName === 'light' ? '60px' : '80px' };
+`;
+
+export const LogoImage = styled.div`
+    background-image: url(${ props => props.theme.themeName === 'light' ? YoutubeLogo : YoutubeLogoDarkTheme });
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+`;
+
 
 export const ButtonContainer = styled.div<{ margin?: string }>`
     display: none;
@@ -39,7 +71,7 @@ export const ButtonContainer = styled.div<{ margin?: string }>`
     cursor: pointer;
 
     &:hover {
-        background-color: #f2f2f2;
+        background-color: ${ props => props.theme.buttonContainer.hover.backGroundColor };
     }
 
     @media(min-width: 769px) {
@@ -49,6 +81,9 @@ export const ButtonContainer = styled.div<{ margin?: string }>`
 
 export const ButtonIcon = styled.img`
     width: 20px;
+
+    //filter (invert color)
+    ${ props => ( props.theme.themeName === 'dark' ? 'filter: grayscale(1) invert(1);' : undefined )}
 `;
 
 export const SearchContainer = styled.div`
@@ -66,7 +101,8 @@ export const SearchContainer = styled.div`
 export const SearchInputContainer = styled.div`
     width: 450px;
     height: 35px;
-    border: 1px solid #d3d3d3;
+    background-color: ${ props => props.theme.backGroundColor };
+    border: 1px solid ${ props => props.theme.form.inputBorderColor };
     border-radius: 40px 0 0 40px;
     display: flex;
     align-items: center;
@@ -76,6 +112,8 @@ export const SearchInputContainer = styled.div`
 export const SearchInput = styled.input`
     width: 100%;
     height: 25px;
+    background-color: ${ props => props.theme.backGroundColor };
+    color: ${ props => props.theme.fontColor };
     outline: none;
     border: none;
 `;
@@ -84,8 +122,8 @@ export const SearchButton = styled.div`
     border-radius: 0 40px 40px 0;
     height: 35px;
     width: 70px;
-    background-color: #f8f8f8;
-    border: 1px solid #d3d3d3;
+    background-color: ${ props => props.theme.form.searchButtonColor };
+    border: 1px solid ${ props => props.theme.form.inputBorderColor };
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,7 +144,8 @@ export const TogglerShowInput = styled.div<{ $showInput?: boolean }>`
 export const SearchContainerMobile = styled.div<{ $showInput?: boolean }>`
     display: ${ ({ $showInput }) => $showInput ? 'grid' : 'none' };
     grid-template-columns: 1fr 4fr 1fr;
-    background-color: #f1f1f1;
+    background-color: #3b3b3b;
+    color: #000;
     position: fixed;
     top: 0;
     left: 0;
@@ -131,6 +170,10 @@ export const SearchContainerMobile = styled.div<{ $showInput?: boolean }>`
         display: flex;
         justify-content: center;
         align-items: center;
+
+        ${ButtonIcon} {
+            filter: initial;
+        }
     }
 
     @media(min-width: 769px) {
@@ -159,6 +202,15 @@ export const HeaderButtons = styled.div`
     display: flex;
     justify-content: flex-end;
     white-space: nowrap;
+
+    .theme-switcher {
+        background-color: ${props => props.theme.themeName === 'light' ? '#0f0f0f' : '#fff'};
+        display: flex;
+        
+        img {
+            filter: initial;
+        }
+    }
 `;
 
 export const LoginButton = styled.button`
@@ -168,18 +220,22 @@ export const LoginButton = styled.button`
     align-items: center;
     column-gap: 5px;
     padding: 10px;
-    background-color: #fff;
-    color: #065fd4;
+    background-color: ${ props => props.theme.backGroundColor };
+    color: ${ props => props.theme.loginButton.fontColor };
     font-weight: 600;
-    border: 1px solid #e5e5e5;
+    border: 1px solid ${ props => props.theme.loginButton.borderColor };
     border-radius: 20px;
     cursor: pointer;
 
     &:hover {
-        background-color: #def1ff;
-        border-color: #def1ff;
+        background-color: ${ props => props.theme.loginButton.hover.backGroundColor };
+        border-color: none;
     }
 
+    ${ButtonIcon} {
+        filter: initial;
+    }
+    
     @media(max-width: 425px) {
         span {
             display: none;

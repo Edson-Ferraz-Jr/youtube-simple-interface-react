@@ -1,18 +1,22 @@
 import { Container,
     ContainerVideoCards,
+    LogoContainer,
     ShortsLogo,
     VideoCard,
     VideoCardDescription,
     VideoCardThumbnail
 } from "./style";
 
-import ShortsLogoImg from '../../assets/big-shorts-logo.png'
-
+import ShortsLogoSolo from '../../assets/shorts-logo-solo.png'
 
 function ShortsComponent() {
     return(
         <Container>
-            <ShortsLogo src={ShortsLogoImg} />
+            <LogoContainer>
+                <ShortsLogo src={ShortsLogoSolo} />
+
+                <span>Shorts</span>
+            </LogoContainer>
             
             <ContainerVideoCards>
                 {

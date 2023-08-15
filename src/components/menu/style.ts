@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div<{ $openMenu: boolean, $openMenuMobile: boolean }>`
-    background-color: #fff;
+    background-color: ${ props => props.theme.backGroundColor };
+    color: ${ props => props.theme.fontColor };
     width: ${ ({ $openMenu }) => $openMenu ? '250px' : '100px' };
     height: calc(100vh - 55px);
     padding: 0 10px;
@@ -56,7 +57,7 @@ export const MenuItem = styled.div<{ $openMenu: boolean }>`
     }
     
     &:hover {
-        background-color: #f2f2f2;
+        background-color: ${ props => props.theme.menuItem.hover.backGroundColor };
     }
     
     i {
@@ -67,4 +68,7 @@ export const MenuItem = styled.div<{ $openMenu: boolean }>`
 
 export const ButtonIcon = styled.img`
     width: 25px;
+
+    //filter (invert color)
+    ${ props => ( props.theme.themeName === 'dark' ? 'filter: grayscale(1) invert(1);' : undefined )}
 `;

@@ -5,6 +5,8 @@ import {
     HeaderButtons,
     LoginButton,
     LogoContainer,
+    LogoImage,
+    LogoImageContainer,
     SearchButton,
     SearchContainer,
     SearchContainerMobile,
@@ -19,16 +21,17 @@ import { useNavigate } from "react-router-dom";
 import { InterfaceContext } from "../../contexts/interfaceContext";
 
 import HamburguerIcon from '../../assets/hamburger-icon.png';
-import YoutubeLogo from '../../assets/youTube-logo.png';
 import SearchIcon from '../../assets/search-icon.png';
 import MicrophoneIcon from '../../assets/microphone-icon.png';
 import LoginIcon from '../../assets/login-icon.png';
 import ButtonBack from '../../assets/button-back.png';
+import ThemeSwitcherIcon from '../../assets/theme-switcher-icon.png';
+
 
 function Header() {
     const navigate = useNavigate();
 
-    const { openMenu, setOpenMenu, openMenuMobile, setOpenMenuMobile, showInput, setShowInput } = useContext(InterfaceContext);
+    const { openMenu, setOpenMenu, openMenuMobile, setOpenMenuMobile, showInput, setShowInput, themeToggler } = useContext(InterfaceContext);
     
     return(
         <Container>
@@ -40,8 +43,10 @@ function Header() {
                 <ButtonContainer className="menu-button-mobile" onClick={() => { setOpenMenuMobile(!openMenuMobile); setOpenMenu(true) }} margin="0 10px 0 0">
                     <ButtonIcon src={HamburguerIcon} alt="" />
                 </ButtonContainer>
-                
-                <img src={YoutubeLogo} alt="" style={{cursor: 'pointer', width: '100px'}} onClick={() => navigate('/')} />
+
+                <LogoImageContainer>
+                    <LogoImage onClick={() => navigate('/')} />
+                </LogoImageContainer>
             </LogoContainer>
 
             <TogglerShowInput $showInput={showInput} onClick={ () => setShowInput(!showInput) }>
@@ -86,6 +91,9 @@ function Header() {
                     </LoginButton>
                 }
 
+                <ButtonContainer className="theme-switcher" margin='0 0 0 10px' onClick={() => themeToggler()}>
+                    <ButtonIcon src={ThemeSwitcherIcon} alt="" />
+                </ButtonContainer>
             </HeaderButtons>
         </Container>
     )

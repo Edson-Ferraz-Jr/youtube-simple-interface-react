@@ -2,16 +2,30 @@ import { styled } from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    border-top: 4px solid #ccc;
-    border-bottom: 4px solid #ccc;
+    border-top: 4px solid ${props => props.theme.themeName === 'light' ? '#ccc' : '#fff3'};
+    border-bottom: 4px solid ${props => props.theme.themeName === 'light' ? '#ccc' : '#fff3'};
+    padding: 30px 0;
 
     ::-webkit-scrollbar {
         display: none;
     }
 `;
 
+export const LogoContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+
+    span {
+        color: ${props => props.theme.themeName === 'light' ? '#000' : '#fff'};;
+        font-size: 25px;
+        padding: 0 8px;
+    }
+`;
+
 export const ShortsLogo = styled.img`
-    width: 120px;
+    width: 40px;
 `;
 
 export const ContainerVideoCards = styled.div`
@@ -31,7 +45,6 @@ export const ContainerVideoCards = styled.div`
 `;
 
 export const VideoCard = styled.div`
-    background-color: #fff;
     width: 200px;
     height: 450px;
 
@@ -41,7 +54,6 @@ export const VideoCard = styled.div`
 `;
 
 export const VideoCardThumbnail = styled.div`
-    background-color: #f00;
     width: 100%;
     height: 80%;
     border-radius: 15px;
@@ -58,7 +70,7 @@ export const VideoCardDescription = styled.div`
     row-gap: 5px;
 
     .title {
-        color: #000;
+        color: ${props => props.theme.themeName === 'light' ? '#000' : '#fff'};;
         font-size: 18px;
         font-weight: 500;
     }

@@ -15,7 +15,7 @@ export const Slider = styled.div`
     box-sizing: border-box;
     max-width: inherit;
     width: inherit;
-    background-color: #fff;
+    background-color: ${ props => props.theme.backGroundColor };
     padding: 15px 10px;
     display: flex;
     column-gap: 10px;
@@ -37,8 +37,8 @@ export const SliderContent = styled.div`
 export const Category = styled.button`
     font-size: 15px;
     padding: 8px;
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #000;
+    background-color: ${ props => props.theme.category.backGroundColor };
+    color: ${ props => props.theme.category.fontColor };
     border: none;
     border-radius: 5px;
     white-space: nowrap;
@@ -46,12 +46,13 @@ export const Category = styled.button`
     transition: .2s;
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: ${ props => props.theme.category.hover.backGroundColor };
+        color: ${ props => props.theme.category.hover.fontColor };
     }
 
     &:focus {
-        background-color: #000;
-        color: #fff;
+        background-color: ${ props => props.theme.category.focus.backGroundColor };
+        color: ${ props => props.theme.category.focus.fontColor };
         outline: none;
     }
 `;
@@ -67,7 +68,7 @@ export const SliderButton = styled.div`
     cursor: pointer;
 
     &:hover {
-        background-color: #e5e5e5;
+        background-color: ${ props => props.theme.sliderButton.hover.backGroundColor };
     }
 `;
 
@@ -75,4 +76,6 @@ export const ButtonIcon = styled.img`
     width: 25px;
     height: 25px;
     border-radius: 50%;
+
+    ${ props => props.theme.themeName === 'dark' ? 'filter: invert(1)' : undefined };
 `;
